@@ -1,0 +1,14 @@
+build/
+dist/
+catboost_info/
+__pycache__/
+*.pyc
+.streamlit/
+*.log
+tmp/
+learn/
+.vscode/
+.idea/
+*.spec.bak
+Thumbs.db
+desktop.ini

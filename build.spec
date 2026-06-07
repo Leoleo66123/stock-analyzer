@@ -1,0 +1,47 @@
+# -*- mode: python ; coding: utf-8 -*-
+a = Analysis(
+    ['launcher.py'],
+    pathex=[],
+    binaries=[],
+    datas=[
+        ('app.py', '.'),
+        ('worker.py', '.'),
+        ('modules', 'modules'),
+        ('portfolio.db', '.'),
+    ],
+    hiddenimports=[
+        'streamlit', 'streamlit.runtime', 'streamlit.web', 'streamlit.web.server',
+        'streamlit.runtime.scriptrunner', 'streamlit.runtime.state',
+        'streamlit.elements', 'streamlit.commands',
+        'altair', 'watchdog', 'git', 'pyarrow', 'rich',
+        'plotly', 'plotly.graph_objects', 'plotly.express', 'plotly.validators', 'plotly.io',
+        'pandas', 'numpy', 'numpy.core', 'numpy.lib', 'numpy.random',
+        'sklearn', 'sklearn.preprocessing', 'sklearn.linear_model',
+        'sklearn.utils', 'sklearn.metrics', 'sklearn.model_selection',
+        'lightgbm', 'lightgbm.sklearn',
+        'catboost', 'xgboost', 'xgboost.sklearn',
+        'yfinance', 'akshare',
+        'sqlite3', 'hashlib', 'datetime', 'json', 'threading',
+        'PIL', 'PIL.Image', 'scipy', 'scipy.stats', 'scipy.sparse',
+        'tenacity', 'blinker', 'packaging', 'yaml',
+        'catboost._catboost', 'catboost.widget', '_cffi_backend',
+    ],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=['tkinter', 'matplotlib', 'jupyter', 'IPython', 'notebook', 'nbconvert', 'jedi', 'sphinx', 'pytest', 'setuptools', 'pip', 'wheel'],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=None,
+    noarchive=False,
+)
+pyz = PYZ(a.pure, a.zipped_data, cipher=None)
+exe = EXE(
+    pyz, a.scripts, a.binaries, a.zipfiles, a.datas,
+    [], name='StockAnalyzer', debug=False,
+    bootloader_ignore_signals=False, strip=False, upx=True,
+    upx_exclude=[], runtime_tmpdir=None,
+    console=False, disable_windowed_traceback=True,
+    argv_emulation=False, target_arch='x86_64',
+    codesign_identity=None, entitlements_file=None, icon=None,
+)
